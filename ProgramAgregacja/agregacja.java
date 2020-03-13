@@ -3,8 +3,8 @@ public class agregacja{
         public static void main(String[] args) 
         {
             //Pracownik p = new Pracownik("Arek", new Adres("Piekna", 93), new Praca("aptekarz", true));
-            
             //System.out.println(p);
+            
             Pracownik [] p = new Pracownik[3];
             p[0] = new Pracownik("Arek", new Adres("Piekna", 93), new Praca("aptekarz", true));
             p[1] = new Pracownik("Marek", new Adres("Brzydka", 22), new Praca("piekarz", false));
