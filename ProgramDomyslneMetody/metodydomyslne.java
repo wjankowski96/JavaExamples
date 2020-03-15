@@ -5,6 +5,7 @@ public class metodydomyslne{
             Formula f = (int a) -> {
                 return 5;
             };
+            
         }
     }
 
@@ -16,7 +17,10 @@ public class metodydomyslne{
             return Math.sqrt(a);
         }
     }
-    
+    /**
+     * Klasa <code>A</code> do obliczania pierwiastka
+     * 
+     */
     class A implements Formula{
         public double calculate(int a)
         {
