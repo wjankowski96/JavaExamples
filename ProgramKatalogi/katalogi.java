@@ -71,6 +71,7 @@ public class katalogi {
             {
                 File p = new File(nazwySciezki.getPath(), nazwyPlikowiKatalogow[i]);
                 //if(p.isFile())
+                    //System.out.println(p.getPath());
                 
                 System.out.println(p.getPath());
                 if(p.isDirectory()){
