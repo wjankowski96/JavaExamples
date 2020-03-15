@@ -88,7 +88,7 @@ public class Towar
         return towar;
 
     }
-    public static final int DLUGOSC_NAZWY=30;
+    
     private double cena;
     private String nazwa;
     private Date dataWydania;

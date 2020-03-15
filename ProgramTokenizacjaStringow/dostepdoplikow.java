@@ -3,41 +3,59 @@ package ProgramTokenizacjaStringow;
 import java.io.*;
 
 public class dostepdoplikow {
-    public static void main(String[] args) {
+    TowarRAF[] towar = new TowarRAF[3];
+        
+    towar[0] = new TowarRAF();
+    towar[1] = new TowarRAF(29.0, "Video Kurs Java");
+    towar[2] = new TowarRAF(39.0, "Video Kurs C++", 2008, 11, 21);
+    
+    try
+    {           
+       RandomAccessFile RAF = new RandomAccessFile("baza.txt", "rw");
+       
+       TowarRAF.zapiszDoPliku(towar, RAF);
+       RAF.seek(0);
+       
+       TowarRAF[] towarki = TowarRAF.odczytajZPliku(RAF);
+       
+       for (int i = 0; i < towarki.length; i++)
+       {
+           System.out.println(towarki[i].pobierzCene());
+           System.out.println(towarki[i].pobierzNazwe());
+           System.out.println(towarki[i].pobierzDate());
+           System.out.println("-----------------------");
+       }
+       
+      /* int n = 2;
+       RAF.seek((n-1)*TowarRAF.DLUGOSC_REKORDU);
+       
+       TowarRAF a = new TowarRAF();
+       a.czytajDane(RAF);
+       
+       System.out.println(a);
+       */
+       try
+       {
+           TowarRAF b = new TowarRAF();
 
-        Towar[] towar = new Towar[3];
-        towar[0] = new Towar();
-        towar[1] = new Towar(34.7, "Kurs");
-        towar[2] = new Towar(39.5, "Kurs C++", 2008, 11, 21);
+           b.czytajRekord(RAF, 3);
+           System.out.println(b);
 
-        try {
-           
-            /*DataOutputStream outS = new DataOutputStream (new FileOutputStream("nowyPlik.txt"));
-            outS.writeDouble(12123);
-            outS.close();
-            DataInputStream inS = new DataInputStream(new FileInputStream("nowyPlik.txt"));
-            System.out.println(inS.readDouble());
-            inS.close();
-            */
-            /**
-             * Swobodny dostep do pliku
-             * r read
-             * w write
-             */
-            RandomAccessFile RAF = new RandomAccessFile("nowyRAF.txt", "rw");
-            RAF.writeDouble(123.45);
-            RAF.writeDouble(41.87);
-            RAF.writeChars("hulahop");
-
-            System.out.println(RAF.getFilePointer());
-            RAF.seek(8);//poruszamy sie poprzez zmiane wartosci o ilosc bajtow
-            System.out.println(RAF.readDouble());
-            System.out.println(Double.SIZE/8);
-
-            RAF.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
+           System.out.println("lala");
+       }
+       catch(BrakRekordu err)
+       {
+           System.out.println(err.getMessage());
+       }
+       RAF.close();
+    }
+    catch (IOException e)
+    {
+        System.out.println(e.getMessage());
     }
 }
+}
+
+
+
+    
