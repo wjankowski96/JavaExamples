@@ -83,11 +83,12 @@ public class Towar
             int rok = Integer.parseInt(tokeny.nextToken());
             int m = Integer.parseInt(tokeny.nextToken());
             int dz = Integer.parseInt(tokeny.nextToken());
-            towar[i]=new Towar(cena, nazwa, rok, m, dz);
+            towar[i]=new Towar(cena, nazwa, rok, m, dz );
         }
         return towar;
 
     }
+    public static final int DLUGOSC_NAZWY=30;
     private double cena;
     private String nazwa;
     private Date dataWydania;
