@@ -9,11 +9,15 @@ public class klasaabstrakcyjnastrumienia {
          * Połączylismy dwa strumienie BufferedWriter(klasa abstrakcyjna) z FileWriter
          * Zapisywanie szybciej bo dane sa bufforowane i otrzymalismy mozliwosc dodawania nowej lini
          */
-         BufferedWriter writer = new BufferedWriter(new FileWriter("plikTekstyowy.txt"));
+        File plik = new File("plikTekstyowy.txt");
+         Reader reader;
+         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(plik)));
          writer.write("lalalal");
          writer.newLine();
          writer.write("nastepna linia");
          writer.close();
 
+         
+        // Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(plikTekstyowy)));
     }
 }
