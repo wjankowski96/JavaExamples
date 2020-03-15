@@ -4,12 +4,16 @@ public class klasaabstrakcyjnastrumienia {
     public static void main(String[] args) throws IOException {
        
         /**
+         * @version 1.1
          * Tworzymy plik tekstowy do ktorego przesylamy ciag znakow za pomoca klasy writrer
-         * @version 1.0
-         * Połączylismy dwa strumienie BufferedWriter z FileWriter
+         * Połączylismy dwa strumienie BufferedWriter(klasa abstrakcyjna) z FileWriter
+         * Zapisywanie szybciej bo dane sa bufforowane i otrzymalismy mozliwosc dodawania nowej lini
          */
-         Writer writer = new BufferedWriter(new FileWriter("plikTekstyowy.txt"));
+         BufferedWriter writer = new BufferedWriter(new FileWriter("plikTekstyowy.txt"));
          writer.write("lalalal");
+         writer.newLine();
+         writer.write("nastepna linia");
          writer.close();
+
     }
 }
